@@ -43,4 +43,16 @@ public with sharing class GiftSelector {
                 AND Payment_Status__c=: ElevateTransactionStatus.AUTHORIZED.name()
         ];
     }
+
+    public DataImport__c getGiftById(Id giftId, List<String> fieldsToQuery) {
+        String queryString = new UTIL_Query()
+            .withFrom(DataImport__c.SObjectType)
+            .withSelectFields(fieldsToQuery)
+            .withWhere('Id =: giftId')
+            .withSecurityEnforced()
+            .build();
+
+        return Database.query(queryString);
+    }
+    
 }
