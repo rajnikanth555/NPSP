@@ -85,7 +85,19 @@ public with sharing class BDI_DataImport_CTRL {
         // load up default settings or a specified batch
         loadBatchAndSettings(ApexPages.currentPage().getParameters().get('batchId'));
     }
+    /*******************************************************************************************************
+    * @description constructor
+    */
+    public BDI_DataImport_CTRL1() {
+        batchRunning1 = false;
+        isDryRun1 = false;
+        apexJobId1 = null;
+        dtStar1t = null;
+        isEditMode1 = false;
 
+        // load up default settings or a specified batch
+        loadBatchAndSettings(ApexPages.currentPage().getParameters().get('batchId'));
+    }
     /*******************************************************************************************************
     * @description loads up the specified batch and it settings, or loads custom settings if no batch
     * @return null
